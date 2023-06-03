@@ -58,7 +58,14 @@ function Food(id, name, type, price) {
     
     food.render();
   
-    
+     
+  var foodData = localStorage.getItem('foodData');
+  var foods = [];
+  if (foodData) {
+    foods = JSON.parse(foodData);
+  }
+  foods.push(food);
+  localStorage.setItem('foodData', JSON.stringify(foods));
     event.target.reset();
   });
   
